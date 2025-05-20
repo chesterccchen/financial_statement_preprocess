@@ -37,4 +37,7 @@ python crawer_statementdog.py
 
 
 
-### 將四大報表轉成jpg後，要進行紅印章去除，
+### 將四大報表轉成jpg後，要進行紅印章去除，可以發現每個財報上的印章亮紅色部份表示沒有被文字覆蓋，暗紅色表示印章上參雜文字，因此可以透過remove_red_stamp.py，將圖片轉成hsv空間，將亮紅色部分去除(實測結果是將亮度>120的紅色去除效果最佳，也可以透過auto_thresh = np.percentile(red_v, N)取前N%亮度的紅色去除 )
+```bash
+python remove_red_stamp.py
+```
