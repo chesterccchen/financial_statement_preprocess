@@ -4,6 +4,9 @@
 
 - **`get_statementdog_cookies.py`**：負責登入財報狗並儲存必要的 Cookies，以便後續爬取財報。
 - **`crawer_statementdog.py`**：使用儲存的 Cookies 搜尋並下載指定公司的第四季財報 PDF 檔案。
+- **`gemini_extract_statement.py`**： 將財報中的四大報表提取成pdf
+- **`run_pdf_to_jpg.py`**： 將四大報表的pdf轉成jpg
+- **`remove_red_stamp.py`**： 將四大報表jpg中的紅色印章去除
 
 ## 環境要求
 
