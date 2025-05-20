@@ -1,10 +1,10 @@
 # 財報狗財報爬蟲與前處理
 
-本專案自動化登入 [財報狗](https://statementdog.com/)，下載指定公司最新年度第四季合併及個體財報（PDF），並進行四大報表擷取與紅色印章去除等前處理。
+此程式目標為自動化登入 [財報狗](https://statementdog.com/)，下載指定公司最新年度第四季合併及個體財報（PDF），並進行四大報表擷取與紅色印章去除等前處理。
 
 ---
 
-## 專案流程總覽
+## 流程總覽
 
 1. **登入並取得 Cookies**
 2. **下載公司財報 PDF**
@@ -17,12 +17,12 @@
 ## 主要腳本說明
 
 | 檔案名稱                      | 功能簡述                                      |
-|------------------------------|-----------------------------------------------|
-| `get_statementdog_cookies.py` | 自動登入財報狗並儲存 Cookies                  |
-| `crawer_statementdog.py`      | 下載指定公司第四季財報 PDF                    |
-| `gemini_extract_statement.py` | 擷取財報中的四大報表 PDF                      |
-| `run_pdf_to_jpg.py`           | 將四大報表 PDF 轉為 JPG 圖片                  |
-| `remove_red_stamp.py`         | 去除 JPG 圖片中的紅色印章                     |
+|------------------------------|-----------------------------------------------                                   |
+| `get_statementdog_cookies.py` | 自動登入財報狗並儲存 Cookies                                                      |
+| `crawer_statementdog.py`      | 下載指定公司第四季財報 PDF                                                        |
+| `gemini_extract_statement.py` | 擷取財報中的四大報表 PDF                                                          |
+| `run_pdf_to_jpg.py`           | 將四大報表 PDF 轉為 JPG 圖片                                                      |
+| `remove_red_stamp.py`         | 去除 JPG 圖片中的紅色印章(此程式同時也可以解決pdf->jpg失真的問題，但目前還沒有完全釐清原因)                    |
 
 ---
 
@@ -87,15 +87,17 @@ python remove_red_stamp.py
 
 ---
 
-## 處理效果展示
+## 處理效果
 
 | 原始圖片 | 去除紅章後 |
 |:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/f68b39c1-6cd7-4929-b50e-a63ef158704d" width="300"/> | <img src="https://github.com/user-attachments/assets/2cc05b37-a1b1-4d16-916c-1cebbb923a23" width="300"/> |
+| <img src="https://github.com/user-attachments/assets/f68b39c1-6cd7-4929-b50e-a63ef158704d" width="500"/> | <img src="https://github.com/user-attachments/assets/2cc05b37-a1b1-4d16-916c-1cebbb923a23" width="500"/> |
 
 > **注意：**  
 > 有些財報印章會完全蓋住文字，無法還原，如下圖所示：
 
-![image](https://github.com/user-attachments/assets/7a4a10dc-4199-455a-9830-b277043344a9)
+| 原始圖片 | 去除紅章後 |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/7a4a10dc-4199-455a-9830-b277043344a9" width="500"/> | <img src="https://github.com/user-attachments/assets/7d3d8b8d-d76e-41c6-a8a3-ec7a3702dfc0" width="500"/> |
 
 ---
