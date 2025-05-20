@@ -33,11 +33,24 @@ python crawer_statementdog.py
 ### 注意! 一個帳號一天約只能爬10~20間公司，並且爬蟲過程有些時候會跳出廣告，或是提醒下載太過頻繁，因此可能導致部分公司財報漏抓，如果需非常嚴謹的抓下每間公司的所有資料，要再額外設定一些邏輯判斷
 
 
-### 接下來是將每間公司財報pdf中的四大報表抓取下來，可以從pdf中的目錄得知四大報表的位置，然而目錄的位置並不固定，並且目錄導向財報的pdf頁數有可能是錯的，因為pdf頁碼有可能與公司的財報頁碼不相同(例如第三頁與第五頁中間穿插了4-1、4-2，會導致頁碼第五頁實際是第六頁pdf)，處理方式如下: 透過gemini api掃過每個財報的前10頁，尋找目錄位置，再跳轉到目錄中
+### 接下來是將每間公司財報pdf中的四大報表抓取下來，可以從pdf中的目錄得知四大報表的位置，然而目錄的位置並不固定，並且目錄導向財報的pdf頁數有可能是錯的，因為pdf頁碼有可能與公司的財報頁碼不相同(例如第三頁與第五頁中間穿插了4-1、4-2，會導致頁碼第五頁實際是第六頁pdf)，處理方式如下: 透過gemini api掃過每個財報的前10頁，尋找目錄位置，再跳轉到財報位置
 
 
+### 將四大報表pdf轉jpg
+```bash
+python run_pdf_to_jpg.py #記得先設定inputfile和outputfile path
+```
 
 ### 將四大報表轉成jpg後，要進行紅印章去除，可以發現每個財報上的印章亮紅色部份表示沒有被文字覆蓋，暗紅色表示印章上參雜文字，因此可以透過remove_red_stamp.py，將圖片轉成hsv空間，將亮紅色部分去除(實測結果是將亮度>120的紅色去除效果最佳，也可以透過auto_thresh = np.percentile(red_v, N)取前N%亮度的紅色去除 )
 ```bash
-python remove_red_stamp.py
+python remove_red_stamp.py #記得先設定inputfile和outputfile path
 ```
+<div style="overflow: hidden;">
+  <img src="https://github.com/user-attachments/assets/f68b39c1-6cd7-4929-b50e-a63ef158704d" style="float: left; width: 45%; margin-right: 5%;" alt="左邊圖片">
+  <img src="https://github.com/user-attachments/assets/2cc05b37-a1b1-4d16-916c-1cebbb923a23" style="float: right; width: 45%;" alt="右邊圖片">
+</div>
+
+然而有些照片本身印章就已經將字完全蓋住，因此無法還原，如下圖:
+![image](https://github.com/user-attachments/assets/7a4a10dc-4199-455a-9830-b277043344a9)
+
+
