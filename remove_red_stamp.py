@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 
 add_file_name = "_去除紅章"
-input_folder = r"C:\Users\chester\Desktop\python_crawer_financial_statement\extract_合併_個體_50到150_output_png"
-output_folder = r"C:\Users\chester\Desktop\python_crawer_financial_statement\extract_合併_個體_50到150_output_png_去除紅章_120_mask"
+input_folder = ""
+output_folder = ""
 os.makedirs(output_folder, exist_ok=True)
 
 def remove_red_only(image):
