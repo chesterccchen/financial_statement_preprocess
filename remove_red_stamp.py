@@ -28,7 +28,7 @@ for root, dirs, files in os.walk(input_folder):
     out_dir = os.path.join(output_folder, rel_path)
     os.makedirs(out_dir, exist_ok=True)
     for filename in files:
-        if filename.lower().endswith('.png'):
+        if filename.lower().endswith('.jpg'):
             input_path = os.path.join(root, filename)
             # 新檔名：原檔名+add_file_name+副檔名
             name, ext = os.path.splitext(filename)
