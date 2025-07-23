@@ -193,7 +193,7 @@ def merge_lines_optimized(lines, y_threshold=5, x_threshold=5):
 
 def detect_and_merge_lines(input_path, output_path):
     image_gray = imread_unicode(input_path, cv2.IMREAD_GRAYSCALE)
-    _, thresh = cv2.threshold(image_gray, 190, 255, cv2.THRESH_BINARY_INV)
+    _, thresh = cv2.threshold(image_gray, 200, 255, cv2.THRESH_BINARY_INV)
 
     #edges = cv2.Canny(image_gray, 50, 150)
 
